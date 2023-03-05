@@ -6,15 +6,20 @@ namespace One.Controllers
 {
     public class StoreController : Controller
     {
-        public string Index()
+        public ActionResult Index()
         {
-            return "1";
+            var genres = new List<Genre>
+            {
+                new Genre { Name = "Disco"},
+                new Genre { Name = "Jazz"},
+                new Genre { Name = "Rock"}
+            };
+            return View(genres);
         }
-        public string Browse(string genre)
+        public ActionResult Browse(string Genre)
         {
-            string message = HttpUtility.HtmlEncode("Store.Browse, Genre = " + genre);
-
-            return message;
+            var genreModel = new Genre { Name = Genre };
+            return View(genreModel);
         }
         public ActionResult Details(int id)
         {
