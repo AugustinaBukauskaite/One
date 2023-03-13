@@ -16,6 +16,8 @@ namespace One.Controllers
             };
             return View(genres);
         }
+
+
         public ActionResult Browse(string Genre)
         {
             var genreModel = new Genre { Name = Genre };
